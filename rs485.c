@@ -5,12 +5,18 @@
 #define TIOCGRS485	0x542E
 #define TIOCSRS485	0x542F
 
+#define MY_DEVICE	"/dev/ttyUSB0"
+
 void main(void)
 {
-	int fd = open("/dev/mydevice",O_RDWR);
+	int fd = open(MY_DEVICE,O_RDWR);
 	if(fd < 0)
 	{
 		printf("Open device failed!\n");
+	}
+	else
+	{
+		printf("Open ttyUSB0 sucessfully\n");
 	}
 	struct serial_rs485 rs485conf;
 	rs485conf.flags |= SER_RS485_ENABLED;
@@ -31,5 +37,9 @@ void main(void)
 	if(close(fd) < 0)
 	{
 		printf("Close device error!\n");
+	}
+	else
+	{
+		printf("Close device sucessfully\n");
 	}
 }
