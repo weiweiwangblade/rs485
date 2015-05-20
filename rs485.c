@@ -133,7 +133,7 @@ void main(void)
 {
 	int i, fd, c=0, res;  
   
-	char  buf[2];  
+	char  buf[256];  
   
 	printf("Start...\n");
 	fd = open(MY_DEVICE,O_RDWR);
